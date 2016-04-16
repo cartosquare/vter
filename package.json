@@ -1,0 +1,13 @@
+{
+  "name": "vter",
+  "version": "0.1.0",
+  "description": "vector tile data source restful service",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "CartoSquare",
+  "dependencies": {
+    "restify": "^2.8.5"
+  }
+}

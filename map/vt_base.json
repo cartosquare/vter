@@ -1,0 +1,934 @@
+{
+    "background_color": [0, 0, 0],
+    "data_sources": {
+	    "admin": {
+	        "source": "datasource/admin",
+	        "type": "shapefile"
+	    },
+	    "osm": {
+	        "source": "PG:dbname=osm host=localhost port=5432 user=gis",
+	        "type": "sql",
+	        "initial_size": 1,
+	        "max_size": 10
+	    }
+    },
+    "init": {
+	    "center": [
+	        12930741,
+	        3477349
+	    ],
+	    "res": 152.8740565703125
+    },
+    "layers": {
+	    "0": {
+	        "data_source": "admin",
+	        "data_name": "world_admin_nochina_polygon",
+	        "vt_name": "其他国家行政区划",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "0-10",
+		            "res_max": 156544,
+		            "res_min": 0,
+		            "symbol_type": "fill",
+		            "fill_color": [155,155,155]
+		        }
+	        ]
+	    },
+	    "1": {
+	        "data_source": "admin",
+	        "data_name": "world_country_polygon",
+	        "vt_name": "世界行政区划",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "0-10",
+		            "res_max": 156544,
+		            "res_min": 0,
+		            "symbol_type": "fill",
+		            "fill_color": [155,155,155]
+		        }
+	        ]
+	    },
+        "1-1": {
+	        "data_source": "admin",
+	        "data_name": "boundary_line_discuss",
+	        "vt_name": "待定国界",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "0-10",
+		            "res_max": 156544,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [155,155,155]
+		        }
+	        ]
+	    },
+        "1-2": {
+	        "data_source": "admin",
+	        "data_name": "boundary_line_war",
+	        "vt_name": "军事停火线",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "0-10",
+		            "res_max": 156544,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [155,155,155]
+		        }
+	        ]
+	    },
+	    "2": {
+	        "data_source": "admin",
+	        "data_name": "china_admin_polygon",
+	        "vt_name": "中国行政区划",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "0-10",
+		            "res_max": 156544,
+		            "res_min": 0,
+		            "symbol_type": "fill",
+		            "fill_color": [200,200,200]
+		        }
+	        ]
+	    },
+	    "3": {
+	        "data_source": "admin",
+	        "data_name": "china_admin_line",
+	        "vt_name": "中国边界线",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "0-10",
+		            "res_max": 156544,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [255,255,255]
+		        }
+	        ]
+	    },
+	    "4": {
+	        "data_source": "admin",
+	        "data_name": "boundary_buffer",
+	        "vt_name": "边界缓冲",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "0-10",
+		            "res_max": 156544,
+		            "res_min": 0,
+		            "symbol_type": "fill",
+		            "fill_color": [255,255,255]
+		        }
+	        ]
+	    },
+	    "5": {
+	        "data_source": "admin",
+	        "data_name": "islands",
+	        "vt_name": "南海诸岛及钓鱼岛",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "res_max": 156544,
+		            "res_min": 0,
+		            "symbol_type": "marker",
+		            "marker_color": [0,255,0],
+		            "marker_size": 5,
+		            "marker_shape": "circle"
+		        }
+	        ]
+	    },
+	    "6": {
+	        "data_source": "admin",
+	        "data_name": "island_group",
+	        "vt_name": "南海群岛",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "res_max": 156544,
+		            "res_min": 0,
+		            "symbol_type": "marker",
+		            "marker_color": [0,255,0],
+		            "marker_size": 5,
+		            "marker_shape": "circle"
+		        }
+	        ]
+	    },
+	    "7": {
+	        "data_source": "admin",
+	        "data_name": "world_country_point",
+	        "vt_name": "国家标注",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "0-5",
+		            "res_max": 156544,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "country_na"
+		        }
+	        ]
+	    },
+	    "8": {
+	        "data_source": "admin",
+	        "data_name": "continent_point",
+	        "vt_name": "大洲标注",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "0-10",
+		            "res_max": 156544,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "CONTINENT"
+		        }
+	        ]
+	    },
+	    "9": {
+	        "data_source": "admin",
+	        "data_name": "china_province_polyline",
+	        "vt_name": "中国省界线",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "4-10",
+		            "res_max": 39135,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [152,152,152]
+		        }
+	        ]
+	    },
+	    "10": {
+	        "data_source": "admin",
+	        "data_name": "china_province_point",
+	        "vt_name": "省级行政区标注",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "4-6",
+		            "res_max": 9784,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "Name_CHN_J"
+		        }
+	        ]
+	    },
+	    "11": {
+	        "data_source": "admin",
+	        "data_name": "china_province_polygon",
+	        "vt_name": "省级行政区",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "4-6",
+		            "res_max": 156543.033928,
+		            "res_min": 0,
+		            "symbol_type": "fill",
+		            "fill_color": [155, 200, 123]
+		        }
+	        ]
+	    },
+	    "12": {
+	        "data_source": "admin",
+	        "data_name": "china_city_point",
+	        "vt_name": "地级行政区标注",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "7-10",
+		            "res_max": 4891,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "Name_CHN"
+		        }
+	        ]
+	    },
+	    "13": {
+	        "data_source": "admin",
+	        "data_name": "china_city_polygon",
+	        "vt_name": "地级行政区",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "7-10",
+		            "res_max": 4891,
+		            "res_min": 0,
+		            "symbol_type": "fill",
+		            "fill_color": [155, 200, 123]
+		        }
+	        ]
+	    },
+	    "14": {
+	        "data_source": "admin",
+	        "data_name": "china_county_point",
+	        "vt_name": "县级行政区标注",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "8-12",
+		            "res_max": 612,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "Name_CHN"
+		        }
+	        ]
+	    },
+	    "15": {
+	        "data_source": "admin",
+	        "data_name": "china_county_polygon",
+	        "vt_name": "县级行政区",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "8-12",
+		            "res_max": 612,
+		            "res_min": 0,
+		            "symbol_type": "fill",
+		            "fill_color": [155, 200, 123]
+		        }
+	        ]
+	    },
+	    "16": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_polygon",
+	        "geometry_column": "way",
+	        "vt_name": "森林",
+	        "fields": "osm_id, name, \"natural\"",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"natural\"='wood' or \"natural\"='tree_row' or \"natural\"='tree' or \"natural\"='scrub' or \"natural\"='heath' or \"natural\"='moor' or \"natural\"='grassland' or \"natural\"='fell'",
+		            "comment": "5-19",
+		            "res_max": 9784,
+		            "res_min": 0,
+		            "symbol_type": "fill",
+		            "fill_color": [0,255,0]
+		        }
+	        ]
+	    },
+	    "17": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_polygon",
+	        "geometry_column": "way",
+	        "vt_name": "公园",
+	        "fields": "osm_id, name, \"leisure\"",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"leisure\"='park'",
+		            "comment": "10-19",
+		            "res_max": 9784,
+		            "res_min": 0,
+		            "symbol_type": "fill",
+		            "fill_color": [0,155,0]
+		        }
+	        ]
+	    },
+	    "18": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_line",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"waterway\"",
+	        "vt_name": "河道",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"waterway\"='river' or \"waterway\"='stream'",
+		            "comment": "10-19",
+		            "res_max": 9784,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [0,0,155]
+		        }
+	        ]
+	    },
+	    "19": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_polygon",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"natural\", \"waterway\"",
+	        "vt_name": "江河",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "5-19",
+		            "data_filter": "\"natural\"='water' or \"waterway\"='riverbank'",
+		            "res_max": 9784,
+		            "res_min": 0,
+		            "symbol_type": "fill",
+		            "fill_color": [0,0,255]
+		        }
+	        ]
+	    },
+	    "20": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_line",
+	        "geometry_column": "way",
+	        "vt_name": "铁路",
+	        "fields": "osm_id, name, \"railway\"",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "8-19",
+		            "data_filter": "\"railway\"='rail' or \"railway\"='light_rail'",
+		            "res_max": 9784,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [255,0,0]
+		        }
+	        ]
+	    },
+	    "21": {
+	        "data_source": "admin",
+	        "data_name": "subway",
+	        "vt_name": "地铁",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "10-19",
+		            "res_max": 9784,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [255,255,0]
+		        }
+	        ]
+	    },
+	    "22": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_line",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"highway\", oneway",
+	        "vt_name": "服务道路",
+	        "order_by": "z_order",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "16-19",
+		            "data_filter": "\"highway\" = 'service'",
+		            "res_max": 3,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [0,0,0]
+		        }
+	        ]
+	    },
+	    "23": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_line",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"highway\", oneway",
+	        "vt_name": "社区道路",
+	        "order_by": "z_order",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "15-19",
+		            "data_filter": "\"highway\" = 'residential' or \"highway\" = 'unclassified'",
+		            "res_max": 5,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [0,0,0]
+		        }
+	        ]
+	    },
+	    "24": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_line",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"highway\", oneway",
+	        "vt_name": "街道",
+	        "order_by": "z_order",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "13-19",
+		            "data_filter": "\"highway\" = 'tertiary' or \"highway\" = 'tertiary_link'",
+		            "res_max": 20,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [0,0,0]
+		        }
+	        ]
+	    },
+	    "25": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_line",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"highway\", oneway",
+	        "vt_name": "二级道路",
+	        "order_by": "z_order",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "11-19",
+		            "data_filter": "\"highway\" = 'secondary' or \"highway\" = 'secondary_link'",
+		            "res_max": 77,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [0,0,0]
+		        }
+	        ]
+	    },
+	    "26": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_line",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"highway\", oneway",
+	        "vt_name": "一级道路",
+	        "order_by": "z_order",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "9-19",
+		            "data_filter": "\"highway\" = 'primary' or \"highway\" = 'primary_link'",
+		            "res_max": 306,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [10,200,10]
+		        }
+	        ]
+	    },
+	    "27": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_line",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"highway\", oneway",
+	        "vt_name": "主干道",
+	        "order_by": "z_order",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "7-19",
+		            "data_filter": "\"highway\" = 'trunk' or \"highway\" = 'trunk_link'",
+		            "res_max": 1223,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [0,255,255]
+		        }
+	        ]
+	    },
+	    "28": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_line",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"highway\", oneway",
+	        "vt_name": "高速公路",
+	        "order_by": "z_order",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "comment": "6-19",
+		            "data_filter": "\"highway\" = 'motorway' or \"highway\" = 'motorway_link'",
+		            "res_max": 2446,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [255,0,255]
+		        }
+	        ]
+	    },
+        "28-1": {
+	        "data_source": "osm",
+	        "data_name": "bridges_layer1",
+	        "geometry_column": "way",
+	        "fields": "\"highway\"",
+	        "vt_name": "bridges_layer1",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "res_max": 2446,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [255,0,255]
+		        }
+	        ]
+	    },
+        "28-2": {
+	        "data_source": "osm",
+	        "data_name": "bridges_layer2",
+	        "geometry_column": "way",
+	        "fields": "\"highway\"",
+	        "vt_name": "bridges_layer2",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "res_max": 2446,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [255,0,255]
+		        }
+	        ]
+	    },
+        "28-3": {
+	        "data_source": "osm",
+	        "data_name": "bridges_layer3",
+	        "geometry_column": "way",
+	        "fields": "\"highway\"",
+	        "vt_name": "bridges_layer3",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "res_max": 2446,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [255,0,255]
+		        }
+	        ]
+	    },
+        "28-4": {
+	        "data_source": "osm",
+	        "data_name": "bridges_layer4",
+	        "geometry_column": "way",
+	        "fields": "\"highway\"",
+	        "vt_name": "bridges_layer4",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "res_max": 2446,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [255,0,255]
+		        }
+	        ]
+	    },
+        "28-5": {
+	        "data_source": "osm",
+	        "data_name": "bridges_layer5",
+	        "geometry_column": "way",
+	        "fields": "\"highway\"",
+	        "vt_name": "bridges_layer5",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "res_max": 2446,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [255,0,255]
+		        }
+	        ]
+	    },
+        "28-6": {
+	        "data_source": "osm",
+	        "data_name": "bridges_directions1",
+	        "geometry_column": "way",
+	        "fields": "*",
+	        "vt_name": "bridges_directions1",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "res_max": 2446,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [255,0,255]
+		        }
+	        ]
+	    },
+        "28-7": {
+	        "data_source": "osm",
+	        "data_name": "bridges_directions2",
+	        "geometry_column": "way",
+	        "fields": "*",
+	        "vt_name": "bridges_directions2",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "res_max": 2446,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [255,0,255]
+		        }
+	        ]
+	    },
+        "28-8": {
+	        "data_source": "osm",
+	        "data_name": "bridges_directions3",
+	        "geometry_column": "way",
+	        "fields": "*",
+	        "vt_name": "bridges_directions3",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "res_max": 2446,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [255,0,255]
+		        }
+	        ]
+	    },
+        "28-9": {
+	        "data_source": "osm",
+	        "data_name": "bridges_directions4",
+	        "geometry_column": "way",
+	        "fields": "*",
+	        "vt_name": "bridges_directions4",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "res_max": 2446,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [255,0,255]
+		        }
+	        ]
+	    },
+        "28-10": {
+	        "data_source": "osm",
+	        "data_name": "bridges_directions5",
+	        "geometry_column": "way",
+	        "fields": "*",
+	        "vt_name": "bridges_directions5",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "res_max": 2446,
+		            "res_min": 0,
+		            "symbol_type": "line",
+		            "line_color": [255,0,255]
+		        }
+	        ]
+	    },
+	    "29": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_polygon",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"building\"",
+	        "vt_name": "建筑",
+	        "order_by": "ST_YMax(ST_Envelope(way)) DESC",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"building\"='apartments' or \"building\"='house' or \"building\"='residential' or \"building\"='commercial' or \"building\"='industrial'or \"building\"='retail' or \"building\"='hospital' or \"building\"='school' or \"building\"='university' or \"building\"='yes'",
+		            "comment": "15-19",
+		            "res_max": 10,
+		            "res_min": 0,
+		            "symbol_type": "fill",
+		            "fill_color": [60,60,60]
+		        }
+	        ]
+	    },
+	    "30": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_point",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"amenity\"",
+	        "vt_name": "学校教育",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"amenity\" = 'college' or \"amenity\" = 'university' or \"amenity\" = 'school' or \"amenity\" = 'kindergarten' or \"amenity\" = 'library' or \"amenity\"='public_bookcase'",
+		            "res_max": 39,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "name"
+		        }
+	        ]
+	    },
+	    "31": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_point",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"amenity\"",
+	        "vt_name": "文化艺术",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"amenity\" = 'arts_centre' or \"amenity\" = 'artwork' or \"amenity\" = 'castle' or \"amenity\" = 'chalet' or \"amenity\" = 'memorial' or \"amenity\" = 'monument' or \"amenity\" = 'viewpoint' or \"amenity\" = 'attraction' or \"amenity\" = 'museum' or \"amenity\" = 'protected_buildi' or \"amenity\" = 'ruins'",
+		            "res_max": 39,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "name"
+		        }
+	        ]
+	    },
+	    "32": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_point",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"amenity\"",
+	        "vt_name": "银行ATM",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"amenity\" = 'atm' or \"amenity\" = 'bank' or \"amenity\" = 'bureau_de_change'",
+		            "res_max": 39,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "name"
+		        }
+	        ]
+	    },
+	    "33": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_point",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"amenity\"",
+	        "vt_name": "公共机关",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"amenity\" = 'courthouse' or \"amenity\" = 'embassy' or \"amenity\" = 'fire_station' or \"amenity\" = 'public_building' or \"amenity\" = 'police' or \"amenity\" = 'post_office' or \"amenity\" = 'townhall' ",
+		            "res_max": 39,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "name"
+		        }
+	        ]
+	    },
+	    "34": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_point",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"amenity\"",
+	        "vt_name": "旅馆酒店",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"amenity\" = 'guest_house' or \"amenity\" = 'hostel' or \"amenity\" = 'hotel' or \"amenity\" = 'communications_t' or \"amenity\" = 'community_centre' or \"amenity\" = 'motel'",
+		            "res_max": 39,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "name"
+		        }
+	        ]
+	    },
+	    "35": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_point",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"amenity\"",
+	        "vt_name": "停车场",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"amenity\" = 'bicycle_parking' or \"amenity\" = 'bicycle_rental' or \"amenity\" = 'parking' ",
+		            "res_max": 39,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "name"
+		        }
+	        ]
+	    },
+	    "36": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_point",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"amenity\"",
+	        "vt_name": "医院",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"amenity\" = 'clinic' or \"amenity\" = 'dentist' or \"amenity\" = 'doctors' or \"amenity\" = 'halt' or \"amenity\" = 'hospital' or \"amenity\" = 'pharmacy' or \"amenity\" = 'veterinary'",
+		            "res_max": 39,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "name"
+		        }
+	        ]
+	    },
+	    "37": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_point",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"amenity\"",
+	        "vt_name": "美食",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"amenity\" = 'bar' or \"amenity\" = 'cafe' or \"amenity\" = 'fast_food' or \"amenity\" = 'pub' or \"amenity\" = 'restaurant'",
+		            "res_max": 39,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "name"
+		        }
+	        ]
+	    },
+	    "38": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_point",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"amenity\"",
+	        "vt_name": "公交站台",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"amenity\" = 'buffer_stop' or \"amenity\" = 'bus_station' or \"amenity\" = 'bus_stop' or \"amenity\" = 'stop' or \"amenity\" = 'station' or \"amenity\" = 'tram_stop' or \"amenity\" = 'subway_entrance'",
+		            "res_max": 39,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "name"
+		        }
+	        ]
+	    },
+	    "39": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_point",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"amenity\"",
+	        "vt_name": "影院剧院",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"amenity\" = 'cinema' or \"amenity\" = 'nightclub' or \"amenity\" = 'theatre'",
+		            "res_max": 39,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "name"
+		        }
+	        ]
+	    },
+	    "40": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_point",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"amenity\"",
+	        "vt_name": "加油站",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"amenity\" = 'gasometer' or \"amenity\" = 'fuel'",
+		            "res_max": 39,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "name"
+		        }
+	        ]
+	    },
+	    "41": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_point",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"amenity\"",
+	        "vt_name": "宗教场所",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"amenity\" = 'place_of_worship'",
+		            "res_max": 39,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "name"
+		        }
+	        ]
+	    },
+	    "42": {
+	        "data_source": "osm",
+	        "data_name": "planet_osm_point",
+	        "geometry_column": "way",
+	        "fields": "osm_id, name, \"amenity\"",
+	        "vt_name": "公共卫生",
+	        "encode": "utf-8",
+	        "rules": [
+		        {
+		            "data_filter": "\"amenity\" = 'toilets'",
+		            "res_max": 39,
+		            "res_min": 0,
+		            "symbol_type": "label",
+		            "label_field": "name"
+		        }
+	        ]
+	    }
+    }
+}
